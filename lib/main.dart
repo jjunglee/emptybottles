@@ -1,48 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:emptybottles/test.dart';
-import 'package:emptybottles/map.dart';
+import 'package:flutter_kakao_map/flutter_kakao_map.dart';
+import 'package:flutter_kakao_map/kakao_maps_flutter_platform_interface.dart';
 
 void main() {
   runApp(MaterialApp(
     title: 'Navigation Basics',
-    home: FirstRoute(),
+    home: MyAppOne(),
   ));
 }
 
-class FirstRoute extends StatelessWidget {
+class MyAppOne extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyAppOne> {
+
+  var infowindow = new InfoWindow();
+  late KakaoMapController mapController;
+
+  MapPoint _visibleRegion = MapPoint(37.5087553, 127.0632877);
+  CameraPosition _kInitialPosition =
+  CameraPosition(target: MapPoint(37.5087553, 127.0632877), zoom: 5);
+
+  void onMapCreated(KakaoMapController controller) async {
+    final MapPoint visibleRegion = await controller.getMapCenterPoint();
+    setState(() {
+      mapController = controller;
+      _visibleRegion = visibleRegion;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Route'),
-      ),
-      body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(title: const Text('Flutter KakaoMap example')),
+        extendBodyBehindAppBar: true,
+        body:
+        Container(
+
+          child : Column(
             children: [
-              RaisedButton(
-                child: Text('점주'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondRoute()),
-                  );
-                },
-              ),
-              RaisedButton(
-                child: Text('일반사용자'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondRoute()),
-                  );
-                },
-              ),
+              Center(
+                  child :
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: KakaoMap(
+                          onMapCreated: onMapCreated,
+                          initialCameraPosition: _kInitialPosition))
+              )
             ],
-          )
-      ),
+          ),
+
+        )
     );
   }
 }
-
-

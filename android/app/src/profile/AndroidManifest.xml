@@ -5,4 +5,9 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+<application>
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="5948e12243cd50479acc4563da37c457"/>
+</application>
 </manifest>

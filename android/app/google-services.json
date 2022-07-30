@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "510809174528",
+    "project_id": "savvy-droplet-327104",
+    "storage_bucket": "savvy-droplet-327104.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510809174528:android:9924050d0d4fe8a4b05ee5",
+        "android_client_info": {
+          "package_name": "com.example.emptybottles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510809174528-b6601uvv4v9hq6nu51ko4avossdl7v49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrve3znlkcfG1YMI263pb8B5-N4THEKpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510809174528-b6601uvv4v9hq6nu51ko4avossdl7v49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
